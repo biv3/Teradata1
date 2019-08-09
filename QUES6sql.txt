@@ -1,0 +1,26 @@
+SELECT DISTINCT s.id,S.employee_name from ques6table s,ques6table_c c,ques6table_o o where  s.ID=o.salesperson_id and  o.CUST_ID= 4 ;
+
+
+select s.employee_name from ques6table s where s.ID not in (select o.salesperson_id from ques6table_o o where o.cust_id = 4 );
+
+
+
+CREATE SET TABLE TD_BIM_FR_TRNG_DB.QUES6TABLEhigh ,FALLBACK ,
+     NO BEFORE JOURNAL,
+     NO AFTER JOURNAL,
+     CHECKSUM = DEFAULT,
+     DEFAULT MERGEBLOCKRATIO
+     (
+	  
+      employee_name VARCHAR(30) TITLE 'NAME' CHARACTER SET LATIN NOT CASESPECIFIC
+	  ,age integer TITLE 'AGE' 
+	   )
+ PRIMARY INDEX ( age );
+ 
+ 
+ insert into ques6tablehigh select employee_name, Age from ques6table where sal > 100000;
+ 
+ 
+ 
+
+
