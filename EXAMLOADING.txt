@@ -1,0 +1,73 @@
+LOGON 10.58.0.66/TD_USER8,TD_USER8;
+
+DATABASE TD_BIM_FR_TRNG_DB;
+ 
+
+DROP TABLE Tbl_newemp_prajwal;
+
+DROP TABLE Tbl_brand_ERR1;
+
+DROP TABLE Tbl_brand_ERR2;
+
+
+CREATE MULTISET TABLE Tbl_newemp_prajwal
+(
+Empno integer
+,Deptno integer
+,First_name varchar(20)
+,Last_name varchar(20)
+,salary integer
+);
+PRIMARY INDEX ( emp_no );
+
+SET RECORD VARTEXT ",";
+
+DEFINE 
+emp(VARCHAR(20))
+,dep(VARCHAR(20))
+,fir(VARCHAR(20))
+,las(VARCHAR(20))
+,sal(VARCHAR(20))
+
+
+FILE=C:\teradataexam\EmpIntl.txt;
+
+ 
+BEGIN LOADING 
+	Tbl_newemp_prajwal
+ERRORFILES 
+	Tbl_brand_ERR1,
+	Tbl_brand_ERR2
+
+CHECKPOINT 1000;
+
+INSERT INTO Tbl_newemp_prajwal
+
+VALUES 
+( 
+:emp
+,:dep
+,:fir
+,:las
+,:sal
+) ;
+
+
+
+FILE=C:\teradataexam\EmpUS.txt;
+
+
+INSERT INTO Tbl_newemp_prajwal
+
+VALUES 
+( 
+:emp
+,:dep
+,:fir
+,:las
+,:sal
+) ;
+
+END LOADING ;
+
+LOGOFF ;

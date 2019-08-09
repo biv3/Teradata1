@@ -1,0 +1,44 @@
+LOGON 10.58.0.66/TD_USER8,TD_USER8;
+
+DATABASE TD_BIM_FR_TRNG_DB;
+ 
+
+
+
+
+SET RECORD VARTEXT ",";
+
+DEFINE 
+emp(VARCHAR(20))
+,dep(VARCHAR(20))
+,fir(VARCHAR(20))
+,las(VARCHAR(20))
+,sal(VARCHAR(20))
+
+
+
+FILE=C:\teradataexam\EmpUS.txt;
+
+ 
+BEGIN LOADING 
+	Tbl_newemp_prajwal
+ERRORFILES 
+	Tbl_brand_ERR1,
+	Tbl_brand_ERR2
+
+CHECKPOINT 1000;
+
+INSERT INTO Tbl_newemp_prajwal
+
+VALUES 
+( 
+:emp
+,:dep
+,:fir
+,:las
+,:sal
+) ;
+
+END LOADING ;
+
+LOGOFF ;
