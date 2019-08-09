@@ -1,0 +1,66 @@
+CREATE SET TABLE TD_BIM_FR_TRNG_DB.QUES6TABLE ,FALLBACK ,
+     NO BEFORE JOURNAL,
+     NO AFTER JOURNAL,
+     CHECKSUM = DEFAULT,
+     DEFAULT MERGEBLOCKRATIO
+     (
+	  ID integer TITLE 'ID' 
+      ,employee_name VARCHAR(30) TITLE 'NAME' CHARACTER SET LATIN NOT CASESPECIFIC
+	  ,age integer TITLE 'AGE' 
+	  ,SAL integer TITLE 'salary' )
+ PRIMARY INDEX ( ID );
+
+
+INSERT INTO QUES6TABLE values (1,'Abe',61,140000);
+INSERT INTO QUES6TABLE values (2,'Bob',34,44000);
+INSERT INTO QUES6TABLE values (5,'Chris',34,40000);
+INSERT INTO QUES6TABLE values (7,'Dan',41,52000);
+INSERT INTO QUES6TABLE values (8,'Ken',57,115000);
+INSERT INTO QUES6TABLE values (11,'Joe',38,38000);.
+
+
+CREATE SET TABLE TD_BIM_FR_TRNG_DB.QUES6TABLE_C ,FALLBACK ,
+     NO BEFORE JOURNAL,
+     NO AFTER JOURNAL,
+     CHECKSUM = DEFAULT,
+     DEFAULT MERGEBLOCKRATIO
+     (
+	  ID integer TITLE 'ID' 
+      ,employee_name VARCHAR(30) TITLE 'NAME' CHARACTER SET LATIN NOT CASESPECIFIC
+	  ,CITY VARCHAR(30) TITLE 'city' CHARACTER SET LATIN NOT CASESPECIFIC
+	   ,INDUSTRY_TYPE VARCHAR(30) TITLE 'type' CHARACTER SET LATIN NOT CASESPECIFIC
+	   )
+ PRIMARY INDEX ( ID );
+ 
+ INSERT INTO QUES6TABLE_C values (4,'SAMSONIC','Pleasant','J');
+ INSERT INTO QUES6TABLE_C values (6,'Panasung','Oaktown','J');
+ INSERT INTO QUES6TABLE_C values (7,'Samony','jackson','B');
+ INSERT INTO QUES6TABLE_C values (9,'Orange','jackson','B');
+ 
+ 
+CREATE SET TABLE TD_BIM_FR_TRNG_DB.QUES6TABLE_O ,FALLBACK ,
+     NO BEFORE JOURNAL,
+     NO AFTER JOURNAL,
+     CHECKSUM = DEFAULT,
+     DEFAULT MERGEBLOCKRATIO
+     (
+	 Numbe INTEGER TITLE 'NUMBER'
+	 ,ORDER_DATE DATE TITLE'ORDER_DATE' FORMAT 'DD/MM/YY'
+	 ,CUST_ID INTEGER TITLE 'CUSTOMER'
+	 ,salesperson_id INTEGER TITLE 'SALES'
+	 ,AMOPUNT INTEGER TITLE 'AMOUNT'
+	 
+	   )
+ PRIMARY INDEX ( NUMBE );
+ 
+ 
+ 
+ insert into ques6table_o values (10,'02/08/96',4,2,540);
+  
+ insert into ques6table_o values (20,'30/01/99',4,8,1800);
+ insert into ques6table_o values (30,'14/07/95',9,1,460);
+ insert into ques6table_o values (40,'29/01/98',7,2,2400);
+ insert into ques6table_o values (50,'03/02/98',6,7,600);
+ insert into ques6table_o values (60,'02/03/98',6,7,720);
+ insert into ques6table_o values (70,'06/05/98',9,7,150);
+ select * from ques6table_o;
