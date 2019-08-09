@@ -1,0 +1,30 @@
+LOGON 10.58.0.66/TD_USER5,TD_USER5;
+
+database td_bim_fr_trng_db;
+
+
+SET RECORD VARTEXT ",";
+	
+.BEGIN LOADING emp_aka ERRORFILES aka_et1, aka_uv1;
+
+DEFINE 
+e(VARCHAR(10)),
+d(VARCHAR(10)),
+f(VARCHAR(20)),
+l(VARCHAR(20)),
+sa(VARCHAR(10))
+
+FILE=\\blrinforma\SrcFiles\test files\EmpUS.txt;
+
+INSERT INTO emp_aka
+VALUES (
+:e
+,:d
+,:f
+,:l
+,:sa);
+
+
+
+.END LOADING;
+.LOGOFF;
